@@ -1,7 +1,8 @@
 #include <imagePipeline.h>
 
 #define IMAGE_TYPE sensor_msgs::image_encodings::BGR8
-#define IMAGE_TOPIC "camera/rgb/image_raw" // kinect:"camera/rgb/image_raw" webcam:"camera/image"
+//#define IMAGE_TOPIC "camera/rgb/image_raw" // kinect:"camera/rgb/image_raw" webcam:"camera/image"
+#define IMAGE_TOPIC "camera/image"
 
 ImagePipeline::ImagePipeline(ros::NodeHandle& n) {
     image_transport::ImageTransport it(n);
@@ -33,8 +34,11 @@ int ImagePipeline::getTemplateID(Boxes& boxes) {
         std::cout << "img.rows:" << img.rows << std::endl;
         std::cout << "img.cols:" << img.cols << std::endl;
     } else {
+		////////////////////////////////////////////////////////////////////////////////////
         /***YOUR CODE HERE***/
-        // Use: boxes.templates
+        ////////////////////////////////////////////////////////////////////////////////////
+		
+		// Use: boxes.templates
         cv::imshow("view", img);
         cv::waitKey(10);
     }  
